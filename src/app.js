@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './app.css';
+import CoinPicker from './CoinPicker';
 
-function app() {
-  return (
-    <div className="app">
+class app extends Component {
+  state = {
+    fromCoin: 'WINGS',
+    toCoin: 'USD',
+  }
+
+  setFrom = event=> this.setState({ fromCoin: event.target.value })
+  setTo = event=> this.setState({ toCoin: event.target.value })
+
+  render() {
+    return (
+      <div className="app">
       <header className="app-header">
         <img src={logo} className="app-logo" alt="logo" />
-        <p>
-          Edit <code>src/app.js</code> and save to reload.
-        </p>
-        <a
-          className="app-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
-    </div>
-  );
+        <CoinPicker fromCoin={this.state.fromCoin}
+                    toCoin={this.state.toCoin}
+                    setFrom={this.setFrom}
+                    setTo={this.setTo}/>
+      </div>
+    );
+  }
 }
+
+
 
 export default app;
