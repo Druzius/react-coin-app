@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 100vw;
+  height: 50px;
+
+  background-color: #282c34;
+  color: white;
+}
+
+nav div {
+  width: 180px;
+  line-height: 50px;
+  cursor: pointer;
+}

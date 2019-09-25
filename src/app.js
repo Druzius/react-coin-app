@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './app.css';
 import CoinPicker from './CoinPicker';
 import RatesChart from './RatesChart';
+import Navbar from './Navbar';
 
 class app extends Component {
   state = {
@@ -28,12 +29,15 @@ class app extends Component {
   setFrom = event=> this.setState({ fromCoin: event.target.value })
   setTo = event=> this.setState({ toCoin: event.target.value })
 
+  setCoinPair = (fromCoin, toCoin)=> this.setState({ fromCoin, toCoin })
+
   render() {
     return (
       <div className="app">
       <header className="app-header">
         <img src={logo} className="app-logo" alt="logo" />
       </header>
+      <Navbar onSetCoinPair={this.setCoinPair} />
         <CoinPicker fromCoin={this.state.fromCoin}
                     toCoin={this.state.toCoin}
                     setFrom={this.setFrom}
