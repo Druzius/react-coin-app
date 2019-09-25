@@ -5,8 +5,23 @@ import CoinPicker from './CoinPicker';
 
 class app extends Component {
   state = {
-    fromCoin: 'WINGS',
-    toCoin: 'USD',
+    fromCoin: '',
+    toCoin: '',
+    historicalRates: [],
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if( this.state.toCoin && this.state.fromCoin &&
+        ( (this.state.fromCoin !== prevState.fromCoin ) ||
+          (this.state.toCoin !== prevState.toCoin ) ) ) {
+
+      fetch(`https://min-api.cryptocompare.com/data/histoday?`+
+            `fsym=${this.state.fromCoin}&tsym=${this.state.toCoin}&limit=60&aggregate=3&e=CCCAGG`)
+        .then( response => response.json() )
+        .then( responseJson => {
+          this.setState({ historicalRates: responseJson.Data });
+        });
+    }
   }
 
   setFrom = event=> this.setState({ fromCoin: event.target.value })
