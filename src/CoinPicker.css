@@ -1,5 +1,8 @@
 .CoinPicker {
   padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .CoinPicker label {

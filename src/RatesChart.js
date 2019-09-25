@@ -7,7 +7,7 @@ const dayFromEpochSeconds = epochSeconds =>
 
 export default ({ rates })=> (
   <LineChart width={window.innerWidth} height={400} data={rates}
-             margin={{top: 25, right: 30, left: 20, bottom: 5}}>
+             margin={{top: 25, right: 20, left: 20, bottom: 5}}>
     <XAxis dataKey='time' tickFormatter={dayFromEpochSeconds}/>
     <YAxis/>
     <CartesianGrid strokeDasharray='3 3'/>
