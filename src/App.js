@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './app.css';
+import './App.css';
 import CoinPicker from './CoinPicker';
 import RatesChart from './RatesChart';
 import Navbar from './Navbar';
