@@ -5,7 +5,7 @@ import CoinPicker from './CoinPicker';
 import RatesChart from './RatesChart';
 import Navbar from './Navbar';
 
-class app extends Component {
+class App extends Component {
   state = {
     fromCoin: '',
     toCoin: '',
@@ -53,4 +53,4 @@ class app extends Component {
 
 
 
-export default app;
+export default App;
